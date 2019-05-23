@@ -1,4 +1,7 @@
+
+#include <iostream>
 #include <wiringPi.h>
+using namespace std;
 
 // LED Pin - wiringPi pin 0 是 BCM_GPIO 17。
 //利用 wiringPiSetupSys 进行初始化时必须使用 BCM 编号
@@ -13,8 +16,12 @@ int main(void)
 
 	pinMode(LED, OUTPUT);
 
-	while (true)
+	int count = 10;
+	while (count+1)
 	{
+		cout << "Count down:" << count << endl;
+		count--;
+
 		digitalWrite(LED, HIGH);  //开
 		delay(500); // 毫秒
 		digitalWrite(LED, LOW);	  //关
